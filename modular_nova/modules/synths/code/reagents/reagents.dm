@@ -1,6 +1,14 @@
 #define NANITE_SLURRY_ORGANIC_PURGE_RATE 4
 #define NANITE_SLURRY_ORGANIC_VOMIT_CHANCE 25
 
+/datum/reagent/coolant
+	name = "Coolant"
+	description = "A chemical used for keeping synthetic internal temperatures within safe levels."
+	reagent_state = LIQUID
+	color = "#c3d1ff"
+	taste_description = "searing cold"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
+
 /datum/reagent/medicine/syndicate_nanites //Used exclusively by Syndicate medical cyborgs
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC //Let's not cripple synth ops
 

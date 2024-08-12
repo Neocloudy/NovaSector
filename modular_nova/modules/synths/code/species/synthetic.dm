@@ -34,7 +34,7 @@
 	mutantheart = /obj/item/organ/internal/heart/synth
 	mutantliver = /obj/item/organ/internal/liver/synth
 	mutantappendix = null
-	exotic_blood = /datum/reagent/fuel/oil
+	exotic_blood = /datum/reagent/coolant
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/synth,
@@ -44,9 +44,11 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/synth,
 	)
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
-	coldmod = 1.2
-	heatmod = 2 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us.
-	siemens_coeff = 1 // Puts you in deep crit and near death but not outright dead
+	coldmod = 0.85 // computers would probably take well to the cold if i really had to guess
+	heatmod = 2 // but they definitely wouldn't like the heat
+	bodytemp_normal = (BODYTEMP_NORMAL + SYNTHETIC_TEMP_OFFSET * 0.70)
+	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT + SYNTHETIC_TEMP_OFFSET)
+	siemens_coeff = 1
 	/// The innate action that synths get, if they've got a screen selected on species being set.
 	var/datum/action/innate/monitor_change/screen
 	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
@@ -71,17 +73,31 @@
 	. = ..()
 
 	if(human.stat == SOFT_CRIT || human.stat == HARD_CRIT)
-		human.adjustFireLoss(1) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
-		human.adjust_bodytemperature(13) //We're overheating!!
-		if(prob(10))
-			to_chat(human, span_warning("Alert: Critical damage taken! Cooling systems failing!"))
+		// this is designed to act similar to human crit where you have a lot of time
+		// but as your health gets lower, your crit damage get worse pretty quickly
+		// at -15 health, you'll take 1.3 fireloss when this ticks
+		// after 3 ticks, the amount of fireloss you're taking will have gone up by 0.27
+		// at -60 health, the amount of fireloss reaches the cap of 5.4
+		var/thermal_damage = (0.5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)))
+		human.adjustFireLoss(clamp(thermal_damage * 18, 0.15, 5.4))
+		human.adjust_bodytemperature(5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)) * 18)
+		// (0.5/(-100/(-30-0.15)))*100
+		if(prob(clamp(thermal_damage * 100, 3, 15))) // here, the chance to have a spike in fireloss/thermals peaks (15%) at -30 health
+			human.visible_message(
+				span_boldwarning("[human] shudders violently as sparks fly from [human.p_their()] most damaged limbs!"),
+				span_warning("<b>WARNING:</b> Severe system damage. Internal temperature regulation systems offline. Shutdown imminent.")
+			)
+			human.adjustFireLoss(7)
+			human.adjust_bodytemperature(SYNTHETIC_TEMP_OFFSET * 2.1)
+			human.balloon_alert_to_viewers("shudders violently!", vision_distance = (COMBAT_MESSAGE_RANGE + 2))
+			human.do_jitter_animation(85)
 			do_sparks(3, TRUE, human)
 
 /datum/species/synthetic/spec_revival(mob/living/carbon/human/transformer)
 	switch_to_screen(transformer, "Console")
 	addtimer(CALLBACK(src, PROC_REF(switch_to_screen), transformer, saved_screen), 5 SECONDS)
 	playsound(transformer.loc, 'sound/machines/chime.ogg', 50, TRUE)
-	transformer.visible_message(span_notice("[transformer]'s [screen ? "monitor lights up" : "eyes flicker to life"]!"), span_notice("All systems nominal. You're back online!"))
+	transformer.visible_message(span_notice("[transformer]'s [screen ? "monitor lights up" : "eyes flicker to life"]!"), span_boldnotice("Reboot successful. All systems nominal."))
 
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer)
 	. = ..()
@@ -207,8 +223,9 @@
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "robot",
 		SPECIES_PERK_NAME = "Synthetic Benefits",
-		SPECIES_PERK_DESC = "Unlike organics, you DON'T explode when faced with a vacuum! Additionally, your chassis is built with such strength as to \
-		grant you immunity to OVERpressure! Just make sure that the extreme cold or heat doesn't fry your circuitry."
+		SPECIES_PERK_DESC = "Unlike organics, you are immune to damage from lack of pressure or overpressure. Damage received from overheating \
+		poses an extreme risk to you, but you need to be warmer to overheat and are slightly more resilient to cold environments. \
+		Your body temperature is regulated at a higher level than that of a typical human."
 	))
 
 	perk_descriptions += list(list(

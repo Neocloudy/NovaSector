@@ -107,6 +107,21 @@
 	var/effective_blood_ratio = blood_volume / BLOOD_VOLUME_NORMAL
 	var/target_oxyloss = max((1 - effective_blood_ratio) * 100, 0)
 
+	// NOVA EDIT ADDITION BEGIN - Synthetic Bloodloss Signs
+	var/target_fireloss = max((1 - effective_blood_ratio) * 65, 0) // using its own var - in case we wanna change it later
+	//var/target_thermals = max(((BODYTEMP_HEAT_DAMAGE_LIMIT + SYNTHETIC_TEMP_OFFSET) + (BLOOD_VOLUME_NORMAL - blood_volume)) * 1.15)
+	if(target_fireloss > 0 && getFireLoss() < target_fireloss)
+		// stacking fireloss, this is similar to what organics have - but the cap for this is lower
+		var/rounded_fireloss = round(0.01 * (BLOOD_VOLUME_NORMAL - blood_volume), 0.25) * seconds_per_tick
+		adjustFireLoss(rounded_fireloss, updating_health = TRUE)
+	//if(target_thermals > (BODYTEMP_HEAT_DAMAGE_LIMIT + SYNTHETIC_TEMP_OFFSET))
+	//	// alongside that, your body temperature will start to regulate itself at a higher temp than normal
+	//	// and warm up to that temperature faster, scaling with blood lost
+	//	// at 400cl of blood, your target temperature is around 684°K
+	//	var/rounded_thermals = round(0.04 * (BLOOD_VOLUME_NORMAL - blood_volume), 0.25) * seconds_per_tick
+	//	adjust_bodytemperature(rounded_thermals)
+	// NOVA EDIT ADDITION END
+
 	// If your ratio is less than one (you're missing any blood) and your oxyloss is under missing blood %, start getting oxy damage.
 	// This damage accrues faster the less blood you have.
 	// If the damage surpasses the KO threshold for oxyloss, then we'll always tick up so you die eventually
