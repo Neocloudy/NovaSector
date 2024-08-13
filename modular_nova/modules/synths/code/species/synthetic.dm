@@ -85,7 +85,7 @@
 				span_warning("<b>WARNING:</b> Severe system damage. Internal temperature regulation systems offline. Shutdown imminent.")
 			)
 			human.adjustFireLoss(7)
-			human.adjust_bodytemperature(SYNTHETIC_TEMP_OFFSET * 2.1)
+			human.adjust_bodytemperature(157)
 			human.balloon_alert_to_viewers("shudders violently!", vision_distance = (COMBAT_MESSAGE_RANGE + 2))
 			human.do_jitter_animation(85)
 			do_sparks(3, TRUE, human)

@@ -7,9 +7,6 @@
 #define DEFAULT_SYNTH_PART_COLOR "#746c6a"
 #define DEFAULT_SYNTH_SCREEN_COLOR "#b99b3a"
 
-/// The offset for a synthetic's target body temperature, and heat toleration
-#define SYNTHETIC_TEMP_OFFSET 75
-
 // EMP specific Defines
 #define SYNTH_ORGAN_LIGHT_EMP_DAMAGE 10
 #define SYNTH_ORGAN_HEAVY_EMP_DAMAGE 20
