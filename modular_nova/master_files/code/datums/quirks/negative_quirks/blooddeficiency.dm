@@ -1,11 +1,12 @@
 // Override of Blood Deficiency quirk for robotic/synthetic species.
 // Does not appear in TGUI or the character preferences window.
 /datum/quirk/blooddeficiency/synth
-	name = "Coolant Leak"
-	desc = "Your shell has multiple coolant leaks, preventing coolant reserves from regulating at 100%."
+	name = "Hydraulic Leak"
+	desc = "Your shell's hydraulic fluids are leaking through their seals."
 	medical_record_text = "Patient requires regular treatment for hydraulic fluid loss."
 	icon = FA_ICON_GLASS_WATER_DROPLET
-	mail_goodies = list(/obj/item/reagent_containers/blood/synth_coolant)
+	mail_goodies = list(/obj/item/reagent_containers/blood/oil)
+	min_blood = BLOOD_VOLUME_BAD - 25
 	hidden_quirk = TRUE
 
 // If blooddeficiency is added to a synth, this detours to the blooddeficiency/synth quirk.
