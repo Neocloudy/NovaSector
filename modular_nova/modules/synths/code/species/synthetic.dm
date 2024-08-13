@@ -220,9 +220,8 @@
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "robot",
 		SPECIES_PERK_NAME = "Synthetic Benefits",
-		SPECIES_PERK_DESC = "Unlike organics, you are immune to damage from lack of pressure or overpressure. Damage received from overheating \
-		poses an extreme risk to you, but you need to be warmer to overheat and are slightly more resilient to cold environments. \
-		Your body temperature is regulated at a higher level than that of a typical human."
+		SPECIES_PERK_DESC = "Unlike organics, you DON'T explode when faced with a vacuum! Additionally, your chassis is built with such strength as to \
+		grant you immunity to OVERpressure! Just make sure that the extreme cold or heat doesn't fry your circuitry."
 	))
 
 	perk_descriptions += list(list(
