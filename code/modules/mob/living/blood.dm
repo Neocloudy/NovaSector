@@ -114,7 +114,6 @@
 		var/rounded_fireloss = round(0.01 * (BLOOD_VOLUME_NORMAL - blood_volume), 0.25) * seconds_per_tick
 		adjustFireLoss(rounded_fireloss, updating_health = TRUE)
 	// NOVA EDIT ADDITION END
-
 	// If your ratio is less than one (you're missing any blood) and your oxyloss is under missing blood %, start getting oxy damage.
 	// This damage accrues faster the less blood you have.
 	// If the damage surpasses the KO threshold for oxyloss, then we'll always tick up so you die eventually
