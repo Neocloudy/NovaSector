@@ -44,11 +44,9 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/synth,
 	)
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
-	coldmod = 0.85 // computers would probably take well to the cold if i really had to guess
-	heatmod = 2 // but they definitely wouldn't like the heat
-	bodytemp_normal = (BODYTEMP_NORMAL + SYNTHETIC_TEMP_OFFSET * 0.70)
-	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT + SYNTHETIC_TEMP_OFFSET)
-	siemens_coeff = 1
+	coldmod = 1.2
+	heatmod = 2 // TWO TIMES DAMAGE FROM BEING TOO HOT?! WHAT?! No wonder lava is literal instant death for us.
+	siemens_coeff = 1 // should be the same as everyone else
 	/// The innate action that synths get, if they've got a screen selected on species being set.
 	var/datum/action/innate/monitor_change/screen
 	/// This is the screen that is given to the user after they get revived. On death, their screen is temporarily set to BSOD before it turns off, hence the need for this var.
@@ -81,7 +79,6 @@
 		var/thermal_damage = (0.5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)))
 		human.adjustFireLoss(clamp(thermal_damage * 18, 0.15, 5.4))
 		human.adjust_bodytemperature(5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)) * 18)
-		// (0.5/(-100/(-30-0.15)))*100
 		if(prob(clamp(thermal_damage * 100, 3, 15))) // here, the chance to have a spike in fireloss/thermals peaks (15%) at -30 health
 			human.visible_message(
 				span_boldwarning("[human] shudders violently as sparks fly from [human.p_their()] most damaged limbs!"),
