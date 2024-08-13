@@ -77,7 +77,7 @@
 		// after 3 ticks, the amount of fireloss you're taking will have gone up by 0.27
 		// at -60 health, the amount of fireloss reaches the cap of 5.4
 		var/thermal_damage = (0.5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)))
-		human.adjustFireLoss(clamp(thermal_damage * 18, 0.15, 5.4))
+		human.adjustFireLoss(clamp(thermal_damage * 18, 0.85, 5.4))
 		human.adjust_bodytemperature(5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)) * 18)
 		if(prob(clamp(thermal_damage * 100, 3, 15))) // here, the chance to have a spike in fireloss/thermals peaks (15%) at -30 health
 			human.visible_message(
