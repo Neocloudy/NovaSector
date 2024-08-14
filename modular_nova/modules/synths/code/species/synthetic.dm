@@ -73,11 +73,12 @@
 	if(human.stat == SOFT_CRIT || human.stat == HARD_CRIT)
 		// this is designed to act similar to human crit where you have a lot of time
 		// but as your health gets lower, your crit damage get worse pretty quickly
-		// at -4 health and greater, you'll only be taking 0.37 burn damage (the lowest allowed)
+		// some number examples:
+		// at -3 health and greater, you'll only be taking 0.28 burn damage (the lowest allowed)
 		// at -15 health, you'll take 1.3 fireloss when this ticks
 		// at -60 health, the amount of fireloss reaches the cap of 5.4
 		var/thermal_damage = (0.5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)))
-		human.adjustFireLoss(clamp(thermal_damage * 18, 0.37, 5.4))
+		human.adjustFireLoss(clamp(thermal_damage * 18, 0.28, 5.4))
 		human.adjust_bodytemperature(5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)) * 18)
 		if(prob(clamp(thermal_damage * 100, 3, 15))) // here, the chance to have a spike in fireloss/thermals peaks (15%) at -30 health
 			human.visible_message(
