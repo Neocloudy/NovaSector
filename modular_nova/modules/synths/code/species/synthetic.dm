@@ -75,7 +75,6 @@
 		// but as your health gets lower, your crit damage get worse pretty quickly
 		// at -4 health and greater, you'll only be taking 0.37 burn damage (the lowest allowed)
 		// at -15 health, you'll take 1.3 fireloss when this ticks
-		// after 3 ticks, the amount of fireloss you're taking will have gone up by 0.27
 		// at -60 health, the amount of fireloss reaches the cap of 5.4
 		var/thermal_damage = (0.5 / (HEALTH_THRESHOLD_DEAD / (human.health - 0.15)))
 		human.adjustFireLoss(clamp(thermal_damage * 18, 0.37, 5.4))
