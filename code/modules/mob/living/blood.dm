@@ -108,7 +108,7 @@
 	var/target_oxyloss = max((1 - effective_blood_ratio) * 100, 0)
 
 	// NOVA EDIT ADDITION BEGIN - Synthetic Bloodloss Signs
-	var/target_fireloss = max((1 - effective_blood_ratio) * 65, 0)
+	var/target_fireloss = max((1 - effective_blood_ratio) * 80, 0)
 	if(target_fireloss > 0 && getFireLoss() < target_fireloss)
 		// stacking fireloss, this is similar to what organics have - but the cap for this is lower
 		var/rounded_fireloss = round(0.01 * (BLOOD_VOLUME_NORMAL - blood_volume), 0.25) * seconds_per_tick
