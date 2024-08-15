@@ -1,0 +1,21 @@
+{
+	"ushanka":[
+		{
+			"type":"icon_state",
+			"icon_state": "ushanka",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "ushanka_badge",
+			"color_ids": [ 2 ],
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "ushanka_inhand_no_color",
+			"blend_mode": "overlay"
+		}
+	]
+}

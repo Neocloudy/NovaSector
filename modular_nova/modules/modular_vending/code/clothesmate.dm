@@ -24,6 +24,8 @@
 				/obj/item/clothing/head/large_bow = 5,
 				/obj/item/clothing/head/back_bow = 5,
 				/obj/item/clothing/head/sweet_bow = 5,
+				/obj/item/clothing/head/greyscale_ushanka = 5,
+				/obj/item/clothing/head/greyscale_cap = 5,
 			),
 		),
 

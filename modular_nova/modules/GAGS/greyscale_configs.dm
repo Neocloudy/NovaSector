@@ -54,6 +54,16 @@
 	name = "Beret With Fancy Badge (Worn, Teshari)"
 	icon_file = 'modular_nova/modules/GAGS/icons/beret_teshari.dmi'
 
+//USHANKA
+/datum/greyscale_config/ushanka
+	name = "Ushanka"
+	icon_file = 'modular_nova/modules/GAGS/icons/ushanka.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/ushanka/ushanka.json'
+
+/datum/greyscale_config/ushanka/worn
+	name = "Ushanka (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/ushanka_worn.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/ushanka/ushanka_worn.json'
 
 //COWBOY
 /datum/greyscale_config/cowboy_wide

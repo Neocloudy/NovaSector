@@ -286,6 +286,10 @@
 	name = "Fancy Hairpin"
 	item_path = /obj/item/clothing/head/costume/hairpin
 
+/datum/loadout_item/head/greyscale_ushanka
+	name = "Ushanka (Recolorable)"
+	item_path = /obj/item/clothing/head/greyscale_ushanka
+
 /*
 *	CHRISTMAS
 */

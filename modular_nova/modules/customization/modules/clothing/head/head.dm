@@ -255,3 +255,13 @@
 	greyscale_config_worn = /datum/greyscale_config/sweet_bow/worn
 	greyscale_colors = "#7b9ab5"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+//USHANKA
+/obj/item/clothing/head/greyscale_ushanka
+	name = "ushanka"
+	desc = "A ushanka. Will keep you warm in even the most harshest artic enviroments."
+	icon_state = "ushanka"
+	greyscale_config = /datum/greyscale_config/ushanka
+	greyscale_config_worn = /datum/greyscale_config/ushanka/worn
+	greyscale_colors = "#d45aac#FFFFFF"
+	flags_1 = IS_PLAYER_COLORABLE_1
