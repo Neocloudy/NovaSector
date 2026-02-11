@@ -76,7 +76,7 @@
 	if(amount > 0 && owner && HAS_TRAIT(owner, TRAIT_GODMODE))
 		return
 
-	temporary_deafness = max(temporary_deafness + amount * damage_multiplier, 0)
+	temporary_deafness = clamp(temporary_deafness + amount * damage_multiplier, 0, 60 SECONDS) // NOVA EDIT CHANGE - Limits deafness to 1 minute - ORIGINAL: temporary_deafness = max(temporary_deafness + amount * damage_multiplier, 0)
 
 	if(!owner)
 		return
