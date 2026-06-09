@@ -1,5 +1,5 @@
 /// Sets up the MOD's appearance according to the client's preferences
-/datum/quirk/equipping/entombed/proc/decorate(mob/living/carbon/human/human_holder, client/client_source)
+/datum/quirk/equipping/entombed/proc/decorate_modsuit(mob/living/carbon/human/human_holder, client/client_source)
 	var/datum/mod_theme/new_theme = new /datum/mod_theme/entombed()
 	modsuit.theme = new_theme
 
@@ -93,26 +93,3 @@
 		var/obj/item/old_bag = locate() in force_dropped_items
 		if(old_bag.atom_storage)
 			old_bag.atom_storage.dump_content_at(modsuit, user = human_holder)
-
-/// Handles any post-decoration installations for specific species
-/datum/quirk/equipping/entombed/proc/install_racial_features()
-	// deploy specific racial features - ethereals get ethereal cores, plasmamen get free plasma stabilizer module
-	if(!modsuit) // really don't know how this could ever happen but it's better than runtimes
-		return
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	if(isethereal(human_holder))
-		var/obj/item/mod/core/ethereal/eth_core = new
-		eth_core.install(modsuit)
-	else if(isplasmaman(human_holder))
-		var/obj/item/mod/module/plasma_stabilizer/entombed/plasma_stab = new
-		modsuit.install(plasma_stab, human_holder)
-
-/// Handles any post-decoration installations for specific quirks
-/datum/quirk/equipping/entombed/proc/install_quirk_interaction_features()
-	// if entombed needs to interact with certain other quirks, add it here
-	if(!modsuit)
-		return
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	if(human_holder.get_quirk(/datum/quirk/paraplegic))
-		var/obj/item/mod/module/anomaly_locked/antigrav/entombed/ambulator = new
-		modsuit.install(ambulator, human_holder)

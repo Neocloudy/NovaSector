@@ -1,5 +1,5 @@
 //! This file holds the base Entombed quirk definition and some entry points
-//! for decoration, quirk/species compatibility, etc
+//! for setting up the MOD's appearance and interactions with species/quirk/job/whatever else
 
 /datum/quirk/equipping/entombed
 	name = "Entombed"
@@ -36,26 +36,32 @@
 		"Hazard Orange" = HARDLIGHT_HAZARD_ORANGE,
 		"Cosmic Blue" = HARDLIGHT_COSMIC_BLUE,
 	)
-	/// For restricting certain skin + hardlight color combinations
+	/// Associative list of skin name -> hardlight color name, for locking certain skin combinations
+	/// such as skin combinations that would make you look like a head of staff
 	var/static/list/locked_combinations = list(
 		//"Safeguard" = "Alert Amber",
 		//"Advanced" = "Hazard Orange",
 		//"Rescue" = "Standard Blue",
 		//"Research" = "Royal Purple",
 	)
-	/// For restricting certain skins to specific roles
+	/// Associative list of skin name -> job title, for allowing certain jobs to use locked skins anyway
 	var/static/list/role_exceptions = list(
 		//"Safeguard" = JOB_HEAD_OF_SECURITY,
 		//"Advanced" = JOB_CHIEF_ENGINEER,
 		//"Rescue" = JOB_CHIEF_MEDICAL_OFFICER,
 		//"Research" = JOB_RESEARCH_DIRECTOR,
 	)
-
-/datum/quirk/equipping/entombed/post_add()
-	. = ..()
-	install_racial_features()
-	install_quirk_interaction_features()
-	modsuit.quick_activation()
+	/// Associative list of species type -> list of procs to call if the wearer is that species
+	var/static/list/species_interactions = list(
+		/datum/species/ethereal = list(PROC_REF(decorate_ethereal)),
+		/datum/species/plasmaman = list(PROC_REF(decorate_plasmaman)),
+	)
+	/// Associative list of quirk type -> list of procs to call if the wearer has that quirk
+	var/static/list/quirk_interactions = list(
+		/datum/quirk/paraplegic = list(PROC_REF(interaction_paraplegic)),
+	)
+	/// Associative list of job type -> list of procs to call if the wearer is that job
+	var/static/list/job_interactions = list()
 
 /datum/quirk/equipping/entombed/add_unique(client/client_source)
 	. = ..()
@@ -68,7 +74,14 @@
 		qdel(src)
 		return
 
-	decorate(human_holder, client_source)
+	decorate_modsuit(human_holder, client_source)
+
+/datum/quirk/equipping/entombed/post_add()
+	. = ..()
+	check_species_interactions()
+	check_quirk_interactions()
+	check_job_interactions()
+	modsuit.quick_activation()
 
 /datum/quirk/equipping/entombed/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
