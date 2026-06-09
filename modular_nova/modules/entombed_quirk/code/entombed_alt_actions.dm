@@ -1,4 +1,4 @@
-// This code handles the strip menu minutae for re-enabling someone's deactivated entombed suit.
+//! This code handles the strip menu minutae for re-activating someone's entombed MOD
 
 /datum/strippable_item/mob_item_slot/back/get_alternate_actions(atom/source, mob/user)
 	. = ..()

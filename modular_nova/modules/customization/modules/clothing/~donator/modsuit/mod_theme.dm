@@ -15,16 +15,6 @@
 
 //Kaynite Donor Item
 
-//Modsuit theme colors
-#define STANDARD_BLUE "standard_blue"
-#define ALERT_AMBER "alert_amber"
-#define CONTRACTOR_RED "contractor_red"
-#define EXTRASHIELD_GREEN "extrashield_green"
-#define EVIL_GREEN "evil_green"
-#define ROYAL_PURPLE "royal_purple"
-#define HAZARD_ORANGE "hazard_orange"
-#define COSMIC_BLUE "cosmic_blue"
-
 /datum/mod_theme/paragon
 	name = "paragon"
 	desc = "This semi-artisanal, bleeding edge MODsuit is a symbol of exemplary performance, amplifying the speciality of the user through its durable carapace and a wide variety of utilities, both offensive and defensive."
@@ -38,7 +28,7 @@
 	armor_type = /datum/mod_theme/civilian::armor_type
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
 	slowdown_deployed = 0.5
-	hardlight_theme = STANDARD_BLUE
+	hardlight_theme = HARDLIGHT_STANDARD_BLUE
 	allowed_suit_storage = list(
 		/obj/item/crowbar/power/paramedic,
 		/obj/item/defibrillator/compact,
@@ -104,7 +94,7 @@
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 2
 	slowdown_deployed = 0.5
 	hearing_protection = EAR_PROTECTION_NORMAL
-	hardlight_theme = ALERT_AMBER
+	hardlight_theme = HARDLIGHT_ALERT_AMBER
 	allowed_suit_storage = list(
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
@@ -160,7 +150,7 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	charge_drain = DEFAULT_CHARGE_DRAIN * 1.5
 	slowdown_deployed = 0.5
-	hardlight_theme = STANDARD_BLUE
+	hardlight_theme = HARDLIGHT_STANDARD_BLUE
 	allowed_suit_storage = list(
 		/obj/item/crowbar/power/paramedic,
 		/obj/item/defibrillator/compact,
@@ -209,12 +199,3 @@
 			),
 		),
 	)
-
-#undef STANDARD_BLUE
-#undef ALERT_AMBER
-#undef CONTRACTOR_RED
-#undef EXTRASHIELD_GREEN
-#undef EVIL_GREEN
-#undef ROYAL_PURPLE
-#undef HAZARD_ORANGE
-#undef COSMIC_BLUE
