@@ -53,8 +53,8 @@
 	)
 	/// Associative list of species type -> list of procs to call if the wearer is that species
 	var/static/list/species_interactions = list(
-		/datum/species/ethereal = list(PROC_REF(decorate_ethereal)),
-		/datum/species/plasmaman = list(PROC_REF(decorate_plasmaman)),
+		/datum/species/ethereal = list(PROC_REF(interaction_ethereal)),
+		/datum/species/plasmaman = list(PROC_REF(interaction_plasmaman)),
 	)
 	/// Associative list of quirk type -> list of procs to call if the wearer has that quirk
 	var/static/list/quirk_interactions = list(
