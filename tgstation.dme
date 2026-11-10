@@ -8008,7 +8008,6 @@
 #include "modular_nova\modules\aesthetics\firealarm\code\firealarm.dm"
 #include "modular_nova\modules\aesthetics\firedoor\code\firedoor.dm"
 #include "modular_nova\modules\aesthetics\flag\code\signs_flags.dm"
-#include "modular_nova\modules\aesthetics\floors\code\floors.dm"
 #include "modular_nova\modules\aesthetics\furniture\bed.dm"
 #include "modular_nova\modules\aesthetics\guns\code\energy.dm"
 #include "modular_nova\modules\aesthetics\guns\code\guns.dm"
