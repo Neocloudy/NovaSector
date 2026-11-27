@@ -253,3 +253,197 @@
   thegrb93:
   - bugfix: Missing large painting frame craft recipe added
   - bugfix: ooc chat button missing from ooc tab
+2026-11-19:
+  AitorLogedo:
+  - bugfix: Dead bodies wearing insulating clothes cool down after burning instead
+      of staying hot and husking.
+  ArrisFairburne:
+  - code_imp: Improved ranged trooper AI to ignore destroying objects they can shoot
+      through
+  CabinetOnFire:
+  - bugfix: mulebots now use stairs and ladders wow
+  - balance: Monkeys are less tough to fight
+  - bugfix: Monkeys stop throwing things through (solid) windows
+  - bugfix: fixes inversion that made tamed monkeys steal shit instead of untamed
+      ones
+  - refactor: Pathfinding now makes use of a more optimized rust-g A* algorithm
+  - bugfix: Bots now should reliably be summonable
+  FalloutFalcon:
+  - bugfix: Stacking machines not linked to a silo works
+  Fghj240:
+  - spellcheck: corrected gibber meat production examine text
+  - code_imp: improved gibber code formatting
+  Imaginos16 , mrmelbert , ben10omnitrix:
+  - rscadd: fox tails and ears are now available as customization options for felinids.
+  - rscadd: adds fox tails to fox infusion
+  Maia-J:
+  - bugfix: The Grey Tide spear illusions attack their target again.
+  - bugfix: Mirage grenades spawn mirages again.
+  Melbert:
+  - rscadd: If you have someone aggressively grabbed, you can click on a lit stove
+      or hot griddle to place their hand onto it.
+  - bugfix: Drone chat works again.
+  - bugfix: Monkeys spawned from cubes no longer attack other monkeys.
+  - bugfix: NPC flesh spiders attack randomly.
+  - bugfix: The meteor heart uses its abilities correctly.
+  - bugfix: Stabilized pink extracts correctly pacify nearby mobs.
+  - bugfix: Stickmen summoned from the paper mache robes don't attack the caster.
+  - bugfix: Rats spawned from toilet bongs are friendly as expected.
+  - bugfix: Killer tomatos and seedlings are immune to kudzu.
+  - bugfix: Voice is properly passed to crew records
+  - bugfix: Fixes several mobs taking damage from damage types they are intended to
+      be immune to
+  - bugfix: Fix crawl/drag sounds being played while fireman carrying
+  - map: Removed excess waste filters from the Supermatter Engine across all maps
+  - map: Standardizes waste output of the Supermatter Engine across all maps
+  - bugfix: Fixes a bug where you could magically gain an ID card's accesses if the
+      ID card was placed within literally anything (briefcases, backpacks, whatever)
+      being held. A few items have kept this properly (obviously, wallets and PDAs...
+      but a few other special items might have kept it too...)
+  - bugfix: Stamina damage is properly refreshed by taking more stamina damage - in
+      other words. if you baton someone who is in stamcrit. it properly extends stamcrit.
+  - qol: Projectiles should freeze less (more processing time has been allocated to
+      them - so if something else starts to freeze feel free to file a report)
+  - bugfix: You can turn while buckled again
+  - balance: The Knock spell will open safes and briefcases
+  - bugfix: You can no longer start to metabolize chems without a liver
+  - bugfix: Digital clocks should report more accurate times in the hours position
+      (before, it mirrored one of the minute's times)
+  - code_imp: Cleaned up digital clock code a bit, report if they seem to be reporting
+      weird numbers
+  - code_imp: Changed the code that determines if you're protected from pressure damage
+      or not, report anything weird with your ghetto spacesuit setups (like if they
+      suddenly stop working)
+  - code_imp: Tweaked bluespace interference code slightly to make it less laggy,
+      report any weird teleports you experience
+  - bugfix: Dynamic has a significantly higher chance of spawning antags if there
+      are no antags alive
+  - bugfix: Dynamic no longer counts dead people as alive for the purpose of antag
+      spawn chance
+  - qol: Dynamic math changed slightly. Fewer antags are spawned if a significant
+      amount of the crew is dead, and observers who were never part of the crew no
+      longer reduce the chance of spawning antags.
+  - qol: Dynamic rulesets that a require ghosts cannot be picked if there are no ghosts.
+      This means midround rulesets like Traitors / Mass Traitors will be significantly
+      more common when there are no observers.
+  - bugfix: The Reticence, Gygax, Clarke, Phazon, and Odysseus all mistakenly drained
+      10x less power to move than intended; this has been fixed
+  - bugfix: Some mecha equipment (Mounted sleeper, syringe gun, beam gun, wormhole
+      generator, teleporter, repair droid, punch-face, and paddy clamp) mistakenly
+      drained 10x less power on usage than intended; this has been fixed
+  PapaMichael:
+  - bugfix: Supply Pod "Launch Turf Ordered" and "Launch Random Turf" modes now work
+      again
+  - bugfix: The Kilostation Sci Security outpost now has a security science locker
+  - qol: Ambient game tracks will no longer play over admin web music
+  Pumpkinoe:
+  - balance: Nutimov is slightly more dangerous to use now, if you don't treat the
+      AI right
+  Xander3359:
+  - bugfix: Fixed misplaced wallet runtiming on maps with no closets
+  btcbuster:
+  - rscadd: Putrid dumpsters that spawn corpses now spawn morgue corpses instead of
+      an intact human corpse, leading to other species and damage on the corpses.
+      Cost decreased.
+  - balance: You no longer lose ore when smelting it.
+  grungussuss:
+  - sound: added new handling sfx to bowls, fruits, vegetables, rags, griddles.
+  necromanceranne:
+  - balance: Cyborgs require two flashes to stun them once again.
+  - balance: You can now punch borgs to death. But you do need to have a decent punch
+      to even hurt them.
+  - balance: Lizardpeople are now so strong. They could bend steel. You could grate
+      cheese on those abdominals. It will get caught in their scales though, which
+      means they might get scalerot, so please don't actually do that. Just admire
+      them from a comfortable, although perhaps uncomfortable for the subject of admiration,
+      distance.
+  san7890:
+  - rscdel: CatwalkStation has been removed from the game.
+  scolastico:
+  - bugfix: Pressing "Force Reconnect" in the chat panel's websocket settings no longer
+      breaks the websock
+  sqnztb:
+  - bugfix: Security department orders should show the weapon requisition kits again.
+  thegrb93:
+  - bugfix: Fix cyborg medical omni-tool from not having drapes at first.
+2026-11-23:
+  Absolucy:
+  - bugfix: chat no longer randomly stops autoscrolling when a big message (like an
+      examine) or a burst of messages comes in
+  - bugfix: Hopefully fixed most chat scrolling issues in general, tbh.
+  - bugfix: chat no longer stays blank for new players, or when chat settings are
+      slow to load
+  - bugfix: chat no longer breaks on every join if your saved chat data got corrupted
+  - qol: chat now tells you whenever something goes wrong with loading or saving your
+      chat data
+  - rscadd: You can now see which storage backend your chat settings use.
+  - bugfix: chat tooltips starting with a number no longer get cut down to just the
+      number
+  - bugfix: the music player no longer shows a garbage upload date when there isn't
+      one
+  - bugfix: new players with no saved chat settings can hear admin music again
+  - bugfix: chat highlights now work for terms with punctuation or accents
+  - bugfix: '"Exact" chat highlights now work with accented letters and terms ending
+      in punctuation'
+  - bugfix: chat highlights that mix /regex/ entries with plain words now match the
+      plain words too
+  - bugfix: the chat highlight list no longer reorders itself after you delete the
+      default highlight
+  - bugfix: fixed lighting and night vision breaking after turning back from a shapeshift
+      (or getting put into a body) on an upper z-level, until you changed z-levels
+  Arceniu:
+  - bugfix: enforcer pistol safety state icon
+  CabinetOnFire:
+  - bugfix: Pets no longer get stuck in attack mode
+  - qol: Pet commands should be more clearly communicated now
+  Kurgis:
+  - bugfix: Exosuit drills no longer need to disabled and re-enabled again to properly
+      use their on_click functions... because now they just start disabled.
+  Melbert:
+  - bugfix: You can no longer examine things obscured by darkness (unless you have
+      night vision)
+  - bugfix: You no longer see messages of people obscured by darkness (unless you
+      have night vision)
+  - rscadd: Shoving someone who is on fire into someone who is not spreads fire now.
+  Neocloudy:
+  - map: 'NorthStar: Received a lot of tweaks in general, see PR 7920 for mostly full
+      list of changes.'
+  - map: 'NorthStar: On Deck 1, there are now cryo pods nearby Supply/connected to
+      Arrivals on the port side. This is the fastest way to leave the game from Supply.'
+  - map: 'NorthStar: On Deck 2, there are now cryo pods next to Medical/neighboring
+      Virology and Science on the starboard side. This is the fastest way to leave
+      the game from Engineering, Medical or Science.'
+  - map: 'NorthStar: Adjusted the appearance of Deck 3''s Cryogenics.'
+  - map: 'NorthStar: Removed an unneeded camera from the Delivery Office.'
+  - map: 'NorthStar: Science Break Room can''t be seen from the main Science area,
+      has better wallmount placement, and functional disposals.'
+  - map: 'NorthStar: Apartments have curtains that you can close.'
+  - map: 'NorthStar: Third Floor Starboard Maint is slightly more lit, as opposed
+      to not lit at all. Second Floor Starboard Maint also receives a few more lights.'
+  - map: 'NorthStar: Medical uses new tiles that play around the presence of decals
+      in the Treatment Center and hallways.'
+  - map: 'NorthStar: Connected Medical Cryogenics to the scrubbers network, so CO2
+      from people in the pods is actually sent away.'
+  - map: 'NorthStar: Psychologist''s Office (main) is covered by a camera.'
+  - map: 'NorthStar: The quantum pad from Robotics to Research and Development is
+      linked at the start of the round.'
+  PapaMichael:
+  - bugfix: Ceruleans species-changed into humans no longer lose a third of their
+      blood nor zoom around super fast
+  - bugfix: AIs can now malfunction when piloting a shell
+  SmArtKar:
+  - bugfix: Fixes hacker names not filtering out some invalid symbols
+  TheRyeGuyWhoWillNowDie:
+  - balance: Doubled the potency of synthflesh
+  btcbuster:
+  - bugfix: Can't take pyrophobia and pyromania at once now.
+  - spellcheck: fixed a typo on an icebox plant
+  moocowswag:
+  - qol: Ai's will no longer be punished for having high apm
+  - qol: Silicons can now rapidly cycle modes on air alarms
+  - bugfix: Air alarm ai wires are no longer inverted
+  - bugfix: Air alarm screwdriver context is no longer inverted
+2026-11-24:
+  sqnztb:
+  - rscadd: The Emergency Energy Node can be requested from the IC panel for deadpop
+      scenarios. Power without having to set the engine up.
