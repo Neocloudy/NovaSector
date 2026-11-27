@@ -1101,7 +1101,7 @@
 /area/station/command/heads_quarters/rd)
 "anU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/warm,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "anW" = (
@@ -13059,7 +13059,7 @@
 /turf/open/floor/circuit/green,
 /area/station/science/server)
 "dkf" = (
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/warm,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "dkh" = (
@@ -25961,7 +25961,7 @@
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 4
 	},
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/warm,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/cargo/storage)
 "gCG" = (
@@ -30835,7 +30835,7 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/warm,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "hQl" = (
@@ -58437,7 +58437,7 @@
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 8
 	},
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/warm,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/cargo/storage)
 "ozt" = (
@@ -77949,7 +77949,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/warm,
 /turf/open/floor/iron/textured,
 /area/station/cargo/storage)
 "tuT" = (
@@ -80675,7 +80675,7 @@
 /area/station/maintenance/floor2/port)
 "ugU" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/warm,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "ugV" = (
